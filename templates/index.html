@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Web Application</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+
+</head>
+<body>
+    <div class="container">
+        <h2 style="font-family:Noto Sans Thai" >🔮 ทำนายผลด้วยโมเดล</h2>
+        <form method="POST" action="/predict">
+            <input type="text"  style="font-family:Noto Sans Thai"  name="feature1" placeholder="Enter Feature 1" required>
+            <input type="text" style="font-family:Noto Sans Thai"  name="feature2" placeholder="Enter Feature 2" required>
+          
+            <button type="submit" style="font-family:Noto Sans Thai" >ทำนาย</button>
+        </form>
+
+        {% if prediction_text %}
+            <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
+</body>
+</html>
